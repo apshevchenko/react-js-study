@@ -1,4 +1,4 @@
-import { mul, div, add, minus } from "./mathOperators";
+import { mul, div, add, minus, exp } from "./mathOperators";
 
 describe("mathOperators test cases", () => {
   it("mul 1 * 2 to equal 2", () => {
@@ -23,5 +23,13 @@ describe("mathOperators test cases", () => {
 
   it("minus 4 - 2 to equal 2", () => {
     expect(minus(4, 2)).toBe(2);
+  });
+
+  it("exp 3^2 to equal 9", () => {
+    expect(exp(3, 2)).toBe(9);
+  });
+
+  it("exp 3^4 to equal 81", () => {
+    expect(exp(3, 4)).toBe(81);
   });
 });
