@@ -1,12 +1,38 @@
 import { ParsedLineType } from "./parser";
-import { isNumber } from "./helpers";
+import { isNumber, isPowMathOperator, isFactorial } from "./helpers";
 import {
   mathOperators,
   mathPriorities,
   mathOperatorsPriorities,
+  unaryMathOperators,
 } from "./mathOperators";
 
 const [ZERO, FIRST, SECOND] = mathPriorities;
+
+export const unaryPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
+  stack.reduce<ParsedLineType>((result, item) => {
+    if (
+      !isNumber(String(item)) &&
+      mathOperatorsPriorities[item] !== SECOND &&
+      mathOperatorsPriorities[item] !== FIRST &&
+      mathOperatorsPriorities[item] !== ZERO
+    ) {
+      if (isFactorial(String(item))) {
+        result = [
+          ...result.slice(0, 1),
+          unaryMathOperators["!"](Number(String(item).replace("!", ""))),
+        ];
+      } else if (isPowMathOperator(String(item))) {
+        result = [
+          ...result.slice(0, 1),
+          unaryMathOperators["**"](Number(String(item).replace("**", ""))),
+        ];
+      }
+    } else {
+      result.push(item);
+    }
+    return result;
+  }, []);
 
 export const zeroPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
   stack.reduce<ParsedLineType>((result, nextItem) => {

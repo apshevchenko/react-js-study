@@ -2,7 +2,18 @@ import {
   firstPrioritiesCalc,
   secondPrioritiesCalc,
   zeroPrioritiesCalc,
+  unaryPrioritiesCalc,
 } from "./engine";
+
+describe("unaryPrioritiesCalc simple cases", () => {
+  it("['**2']", () => {
+    expect(unaryPrioritiesCalc(["**2"])).toEqual([4]);
+  });
+
+  it("['5!']", () => {
+    expect(unaryPrioritiesCalc(["5!"])).toEqual([120]);
+  });
+});
 
 describe("zeroPrioritiesCalc simple cases", () => {
   it("[3, ^, 2]", () => {
