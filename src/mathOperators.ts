@@ -31,11 +31,12 @@ export const mathOperators: { [key: string]: ScalarOperationType } = {
   "^": exp,
 };
 
-export const mathPriorities: number[] = [1, 2];
+export const mathPriorities: number[] = [0, 1, 2];
 
-const [FIRST, SECOND] = mathPriorities;
+const [ZERO, FIRST, SECOND] = mathPriorities;
 
 export const mathOperatorsPriorities: { [key: string]: number } = {
+  "^": ZERO,
   "*": FIRST,
   "/": FIRST,
   "+": SECOND,

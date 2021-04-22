@@ -1,4 +1,18 @@
-import { firstPrioritiesCalc, secondPrioritiesCalc } from "./engine";
+import {
+  firstPrioritiesCalc,
+  secondPrioritiesCalc,
+  zeroPrioritiesCalc,
+} from "./engine";
+
+describe("zeroPrioritiesCalc simple cases", () => {
+  it("[3, ^, 2]", () => {
+    expect(zeroPrioritiesCalc([3, "^", 2])).toEqual([9]);
+  });
+
+  it("[3, ^, 4]", () => {
+    expect(zeroPrioritiesCalc([3, "^", 4])).toEqual([81]);
+  });
+});
 
 describe("firstPrioritiesCalc simple cases", () => {
   it("[1, * 32]", () => {

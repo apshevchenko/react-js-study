@@ -6,7 +6,29 @@ import {
   mathOperatorsPriorities,
 } from "./mathOperators";
 
-const [FIRST, SECOND] = mathPriorities;
+const [ZERO, FIRST, SECOND] = mathPriorities;
+
+export const zeroPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
+  stack.reduce<ParsedLineType>((result, nextItem) => {
+    const prevItem = result[result.length - 2];
+    const item = result[result.length - 1];
+
+    if (!isNumber(String(item)) && mathOperatorsPriorities[item] === ZERO) {
+      if (!mathOperators[item]) {
+        throw new TypeError("Unexpected stack!");
+      }
+
+      if (mathOperators[item]) {
+        result = [
+          ...result.slice(0, -2),
+          mathOperators[item](Number(prevItem), Number(nextItem)),
+        ];
+      }
+    } else {
+      result.push(nextItem);
+    }
+    return result;
+  }, []);
 
 export const firstPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
   stack.reduce<ParsedLineType>((result, nextItem) => {
