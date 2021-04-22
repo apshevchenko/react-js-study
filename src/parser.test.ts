@@ -16,6 +16,14 @@ describe("Parser correct cases", () => {
   it("2 ^ 3", () => {
     expect(parser("2 ^ 3")).toEqual([2, "^", 3]);
   });
+
+  it("**2", () => {
+    expect(parser("**2")).toEqual(["**2"]);
+  });
+
+  it("5!", () => {
+    expect(parser("5!")).toEqual(["5!"]);
+  });
 });
 
 describe("Parser invalid cases", () => {
