@@ -13,6 +13,9 @@
     "build-storybook": "build-storybook",
     "prepare": "husky install"
   },
+  "lint-staged": {
+    "src/*": "prettier --write --ignore-unknown"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
