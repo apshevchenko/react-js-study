@@ -3,8 +3,7 @@ import styled from "@emotion/styled";
 
 export interface ListItemProps {
   key?: string;
-  id: number;
-  listItemHandleClick: (id: number) => void;
+  listItemHandleClick: (id: React.ReactNode) => void;
 }
 
 const ListItemFancyComponent = styled.div`
@@ -20,11 +19,10 @@ const ListItemFancyComponent = styled.div`
   cursor: pointer;
 `;
 export const ListItemComponent: FC<ListItemProps> = ({
-  id,
   listItemHandleClick,
   children,
 }) => (
-  <ListItemFancyComponent onClick={() => listItemHandleClick(id || 0)}>
+  <ListItemFancyComponent onClick={() => listItemHandleClick(children)}>
     {children}
   </ListItemFancyComponent>
 );

@@ -12,7 +12,7 @@ describe("List Item Component", () => {
     const id = 1;
 
     render(
-      <ListItemComponent id={id} listItemHandleClick={handleClick}>
+      <ListItemComponent listItemHandleClick={handleClick}>
         {id}
       </ListItemComponent>
     );

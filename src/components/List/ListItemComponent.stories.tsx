@@ -7,9 +7,8 @@ export default {
   title: "ListItemComponent",
   component: ListItemComponent,
   argTypes: {
-    id: { control: { type: "number" }, defaultValue: 1 },
     children: {
-      control: { type: "text" },
+      control: { type: "number" },
       defaultValue: 1,
     },
   },
