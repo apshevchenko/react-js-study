@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import styled from '@emotion/styled'
+import React, { FC } from "react";
+import styled from "@emotion/styled";
 
 export interface ListItemProps {
-    key?: string;
-    id: number;
-    listItemHandleClick: (id: number)=>void;
-  }
+  key?: string;
+  id: number;
+  listItemHandleClick: (id: number) => void;
+}
 
 const ListItemFancyComponent = styled.div`
   color: #000000;
@@ -18,6 +18,13 @@ const ListItemFancyComponent = styled.div`
   margin: 10px;
   text-align: center;
   cursor: pointer;
-`
-export const ListItemComponent: FC<ListItemProps> = ({ id, listItemHandleClick, children }) =>
-  <ListItemFancyComponent onClick={() => listItemHandleClick(id || 0)}>{children}</ListItemFancyComponent>
+`;
+export const ListItemComponent: FC<ListItemProps> = ({
+  id,
+  listItemHandleClick,
+  children,
+}) => (
+  <ListItemFancyComponent onClick={() => listItemHandleClick(id || 0)}>
+    {children}
+  </ListItemFancyComponent>
+);

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx webpack-dev-server --mode development --open --hot",
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --fix ./",
     "loki:update": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static",
     "loki:approve": "npx loki approve",
     "test": "npx jest",
@@ -14,7 +15,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/*": "prettier --write --ignore-unknown"
+    "**/*": "prettier --write --ignore-unknown ."
   },
   "keywords": [],
   "author": "",
