@@ -6,18 +6,16 @@ export interface ListProps {
   listItemHandleClick: (id: number) => void;
 }
 
-export const ListComponent: FC<ListProps> = ({ list, listItemHandleClick }) => {
-  return (
-    <div className="list">
-      {list?.map((item) => (
-        <ListItemComponent
-          key={String(item)}
-          id={item}
-          listItemHandleClick={listItemHandleClick}
-        >
-          {item}
-        </ListItemComponent>
-      ))}
-    </div>
-  );
-};
+export const ListComponent: FC<ListProps> = ({ list, listItemHandleClick }) => (
+  <div className="list">
+    {list?.map((item) => (
+      <ListItemComponent
+        key={String(item)}
+        id={item}
+        listItemHandleClick={listItemHandleClick}
+      >
+        {item}
+      </ListItemComponent>
+    ))}
+  </div>
+);
