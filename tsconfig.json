@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "allowJs": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "include": ["jest-setup.js"],
+    "paths": {
+      "components/*": ["src/components/*"]
+    }
+  }
+}
