@@ -3,7 +3,9 @@
 // Нужно заменить FIXME на тип который вычисляется на освове OrderState
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type FIXME = any;
+type ExcludeOrderSate = "buyingSupplies" | "producing";
+
+type FIXME = Exclude<OrderState, ExcludeOrderSate>[];
 
 const orderStates = [
   "initial",
